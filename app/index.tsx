@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import { FlatList,  StyleSheet, View } from 'react-native';
-import  DayListItem  from '../src/components/core/DayListItem';
+import  DayListItem  from '@components/core/DayListItem';
 import { AmaticSC_700Bold, AmaticSC_400Regular } from '@expo-google-fonts/amatic-sc';
 
 const days = [...Array(24)].map((val,index) => index + 1);
