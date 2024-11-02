@@ -1,11 +1,13 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
+import { Stack } from 'expo-router'
 
 const DaysDetailsScreen = () => {
   return (
     <View>
-      <Text>DaysDetailsScreen</Text>
-    </View>
+      <Stack.Screen options={{ title: "Day2" }} />
+      <Text>DaysDetailsScreen Day 2</Text>
+    </View> 
   )
 }
 
