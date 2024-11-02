@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
     box: { 
       aspectRatio: 1,
       flex: 1,
-      backgroundColor: '#EADDCA',
+      backgroundColor: '#EADFCA',
       
   
       justifyContent: 'center',
@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
       borderRadius: 20,
     },
     text: {
-      color: '#967579',
+      color: '#453579',
       fontSize: 50,
       fontFamily: 'Inter_900Black',
     },
