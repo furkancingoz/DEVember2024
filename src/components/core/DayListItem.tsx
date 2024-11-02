@@ -28,8 +28,8 @@ const styles = StyleSheet.create({
     },
     text: {
       color: '#453579',
-      fontSize: 50,
-      fontFamily: 'Inter_900Black',
+      fontSize: 100,
+      fontFamily: 'AmaticSC_700Bold',
     },
   });
   
