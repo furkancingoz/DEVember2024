@@ -29,6 +29,7 @@ const styles = StyleSheet.create({
     text: {
       color: '#967579',
       fontSize: 50,
+      fontFamily: 'Inter_900Black',
     },
   });
   
