@@ -4,6 +4,7 @@ import { Stack, Link, router } from 'expo-router';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useState } from 'react';
+import { StatusBar } from 'expo-status-bar';
 
 const onboardingSteps = [{
     title: 'Track every transaction',
@@ -39,9 +40,16 @@ export default function Onboarding() {
     return (
         <SafeAreaView style={styles.page}>
             <Stack.Screen options={{ headerShown: false }} />
+            <StatusBar style="light" />
             <View style={styles.pageContent}>
+             <View style={styles.stepIndicatorContainer}>
+                {onboardingSteps.map((step, index) => (
+                <View style={[styles.stepIndicator, {backgroundColor: index ==  screenIndex ? '#CEF202' : 'grey' }]}/>
+                ))}
+                
+             </View>
             
-             <MaterialIcons style={styles.image}name={data.image} size={200} />
+             <MaterialIcons style={styles.image} name={data.image} size={200} />
                 <View style={styles.footer}>
                      <Text style={styles.title}>{data.title}</Text>
                      <Text style={styles.description}>{data.description}</Text>
@@ -58,6 +66,20 @@ export default function Onboarding() {
 }
 
 const styles = StyleSheet.create({
+
+    //Container Styles
+    stepIndicatorContainer: {
+        flexDirection: 'row',
+        
+        gap: 10,
+    },
+    stepIndicator: {
+        borderRadius: 25,
+        flex: 1, //This will make the stepIndicator take up equal space resizable
+        height: 3,
+        backgroundColor: 'gray',
+
+    },
     page: {
         flex: 1,
         justifyContent: 'center',
@@ -70,6 +92,8 @@ const styles = StyleSheet.create({
     footer: {
         marginTop: 'auto',
     },
+
+    //Text Styles
     title: {
         color: '#FDFDFD',
         fontFamily: 'InterBold',
@@ -85,11 +109,16 @@ const styles = StyleSheet.create({
         fontSize: 20,
         lineHeight: 30,
     },
+
+    //Image Styles
     image: {
         alignSelf  : 'center',
         margin: 20,
+        marginTop: 50,
         color: '#CEF202',
     },
+
+    //Button Styles
     buttonsRow: {
         flexDirection: 'row',
         justifyContent: 'space-between',
