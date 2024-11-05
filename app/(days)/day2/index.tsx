@@ -24,9 +24,10 @@ export default DaysDetailsScreen;
 const styles = StyleSheet.create({
   button: {
     backgroundColor: '#2196F3',
-    padding: 10,
+    padding: 20,
     borderRadius: 5,
     alignItems: 'center',
+    margin: 20,
   },
   buttonText: {
     color: '#fff',
