@@ -5,6 +5,7 @@ import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
+import { GestureDetector, Gesture, Directions } from 'react-native-gesture-handler';
 
 const onboardingSteps = [{
     title: 'Track every transaction',
@@ -36,6 +37,15 @@ export default function Onboarding() {
         setScreenIndex(0);
         router.back();
     }
+    const fling = Gesture.Fling()
+    .direction(Directions.LEFT | Directions.RIGHT)
+    .onBegin((event) => {
+        console.log('Fling begin', event);
+    })
+    .onEnd((event) => {
+        console.log('Fling end', event);
+        onCountinue();
+    });
 
     return (
         <SafeAreaView style={styles.page}>
@@ -48,8 +58,10 @@ export default function Onboarding() {
                 ))}
                 
              </View>
+
+             <GestureDetector gesture={fling}>
              <View style={styles.pageContent}>
-            
+
              <MaterialIcons style={styles.image} name={data.image} size={200} />
                 <View style={styles.footer}>
                      <Text style={styles.title}>{data.title}</Text>
@@ -62,6 +74,7 @@ export default function Onboarding() {
                         </View>    
                 </View>
             </View>
+            </GestureDetector>   
         </SafeAreaView>
     )
 }
@@ -71,7 +84,7 @@ const styles = StyleSheet.create({
     //Container Styles
     stepIndicatorContainer: {
         flexDirection: 'row',
-        
+        padding: 20,
         gap: 10,
     },
     stepIndicator: {
