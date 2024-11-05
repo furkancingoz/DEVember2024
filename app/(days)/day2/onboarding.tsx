@@ -41,13 +41,14 @@ export default function Onboarding() {
         <SafeAreaView style={styles.page}>
             <Stack.Screen options={{ headerShown: false }} />
             <StatusBar style="light" />
-            <View style={styles.pageContent}>
+           
              <View style={styles.stepIndicatorContainer}>
                 {onboardingSteps.map((step, index) => (
-                <View style={[styles.stepIndicator, {backgroundColor: index ==  screenIndex ? '#CEF202' : 'grey' }]}/>
+                <View key={index} style={[styles.stepIndicator, {backgroundColor: index ==  screenIndex ? '#CEF202' : 'grey' }]}/>
                 ))}
                 
              </View>
+             <View style={styles.pageContent}>
             
              <MaterialIcons style={styles.image} name={data.image} size={200} />
                 <View style={styles.footer}>
