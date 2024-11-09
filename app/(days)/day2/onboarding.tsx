@@ -11,6 +11,8 @@ import {
   Directions,
 } from "react-native-gesture-handler";
 
+import Animated,{ FadeInUp, FadeOutDown, }  from "react-native-reanimated";
+
 const onboardingSteps = [
   {
     title: "Track every transaction",
@@ -82,7 +84,7 @@ export default function Onboarding() {
       </View>
 
       <GestureDetector gesture={swipes}>
-        <View style={styles.pageContent}>
+        <Animated.View entering={FadeInUp} exiting={FadeOutDown} style={styles.pageContent} key={screenIndex} >
           <MaterialIcons style={styles.image} name={data.image} size={200} />
           <View style={styles.footer}>
             <Text style={styles.title}>{data.title}</Text>
@@ -96,7 +98,7 @@ export default function Onboarding() {
               </Pressable>
             </View>
           </View>
-        </View>
+        </Animated.View>
       </GestureDetector>
     </SafeAreaView>
   );
